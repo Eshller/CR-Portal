@@ -174,11 +174,11 @@ def updateprofile(request, id ):
         info.save()
         sub = "Congratulations for enrolling in CR Program of Abhyuday IIT Bombay"
         msg = """Congratulations """ + name+"""!! \n
-You have successfully registered in the College Representative Internship Program 2022-23 of Abhyuday, IIT Bombay! We welcome you to the Abhyuday family! \n
+You have successfully registered in the College Representative Internship Program 2023-24 of Abhyuday, IIT Bombay! We welcome you to the Abhyuday family! \n
 Your College Representative ID for your tenure as a CR will be """ +str(cr)+""". \n
-You would soon receive your Coding Ninjas discount coupons! \n
-You can share the following referral code with your friends from your college to form a team and with other friends to earn more points for your team. \nReferral Code - """ +str(ref)+ """\n
-Lots of good wishes for your new endeavours with Abhyuday, IIT Bombay. \n"Do what you can, with what you have, where you are." -Theodore Roosevelt \n
+
+
+Lots of good wishes for your new endeavours with Abhyuday, IIT Bombay. \n
 Regards, \nAbhyuday"""
         send_mail(
                 sub, msg, 'cr.abhyuday.iitbombay@gmail.com',[email]

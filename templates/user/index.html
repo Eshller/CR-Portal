@@ -191,7 +191,23 @@ onscroll = (event) => {
 
 </script>
 <body>
+  {% if messages %} {% for message in messages%}
+<div
+  class="alert alert-{{ messages.tags }} alert-dismissible fade show"
+  role="alert"
+  style="margin: 0"
+>
+  <strong>{{ message }}</strong>
+  <button
+    type="button"
+    class="btn-close"
+    data-bs-dismiss="alert"
+    aria-label="Close"
+  ></button>
+</div>
+{% endfor %} {%endif%}
   {% if user.is_authenticated %}
+
   {% if user.first_name == "" %}
   <div class="moreimp">
   <h2>Session expired</h2>
@@ -199,14 +215,15 @@ onscroll = (event) => {
   </div>
   {% else %}
   <div class="moreimp">
-    <p>Welcome, <b>{{ user.first_name }}</b> !</p>
+    <p style="color: white;">Welcome, <b>{{ user.first_name }}</b> !</p>
     <p> <a href="dashboard/{{ user.id }}">
         <button id="bt" type="submit">Enter the Dashboard</button>
       </a></p>
+  </div>
 
     {% endif %}
     {% else %}
-
+    
     <header>
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
@@ -214,7 +231,7 @@ onscroll = (event) => {
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
             aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon" id="nav-icon"> <i class="fa fa-bars"></i></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -396,7 +413,7 @@ onscroll = (event) => {
               <div class="card-img">
                 <img src="/static/images/step1.png" class="mycard-img" alt="...">
               </div>
-              <div class="card-text">Register individually using google sign in. Click here</div>
+              <div class="card-text">Register individually using google sign in.</div>
             </div>
           </div>
           <div class="card">
@@ -412,7 +429,7 @@ onscroll = (event) => {
               <div class="card-img">
                 <img src="/static/images/step3.png" class="mycard-img" alt="...">
               </div>
-              <div class="card-text">One of you as the Team Leader form your team by clicking on the “Create Team” button on the portal. Now add your team members' details  with which they have registered as a CR.</div>
+              <div class="card-text"> Now team leader has to create "team" by adding teammates' details</div>
             </div>
           </div>
           <div class="card">
@@ -420,7 +437,7 @@ onscroll = (event) => {
               <div class="card-img">
                 <img src="/static/images/step4.png" class="mycard-img" alt="...">
               </div>
-              <div class="card-text">On forming your team, Team ID will be generated for the leaderboard</div>
+              <div class="card-text">A request will be sent to the teammates, and if they accept it, your team will formed </div>
             </div>
           </div>
         </div>
@@ -609,7 +626,7 @@ onscroll = (event) => {
                   <div class="d-block">
                     <p>It was an awesome experience working as a CR under Abhyuday, IIT Bombay. It helped me to grow both as a person and as a student. After the successful completion of the internship you will receive the certificate, letter of recommendation and other attractive perks and internship opportunities. The 6 month internship program will really be a stepping stone to your future.</p>
                     <h5 class="testi-name text-center">Nidhuna Suraj</h5>
-                    <p class="test-regination text-center">Campus Ambassador (2021-22)</p>
+                    <p class="test-regination text-center">Campus Representative (2021-22)</p>
                   </div>
                 </div>
                 <div class="carousel-item ">
@@ -617,7 +634,7 @@ onscroll = (event) => {
                     <p>During my internship experience with ABHYUDAY, IIT Bombay I was able to develop my skills of active listening, planning ,organising and Management skills. I particularly found direct interactions with these middle school children to be useful in improving my understanding regarding the issues they face nowadays. Although I found group sessions to be challenging, I believe they were valuable in developing my confidence . This internship helped me to connect with more people and the webinar sessions we had was informative and each assignments that were provided to us was important to be addressed in recent times let it be the careear counseling sessions we conducted or Eco-drive. </p>
                     <p>This internship was such a valuable experience for me.</p>
                     <h5 class="testi-name text-center"><b>Punnya Gopi</b></h5>
-                    <p class="test-regination text-center"><emph>Campus Ambassador (2021-22)</emph></p>
+                    <p class="test-regination text-center"><emph>Campus Representative (2021-22)</emph></p>
                   </div>
                 </div>
               </div>
@@ -634,7 +651,7 @@ onscroll = (event) => {
 
       </section>
       <section class="mediapartner">
-        <h2 class="text-white media-heading text-center">MEDIA PARTNER</h2>
+        <h2 class="text-white media-heading text-center">MEDIA & OUTREACH PARTNER</h2>
         <div class="mediabody">
           <div class="media-img">
             <img src="/static/images/eshway.png" class="mediaimg" alt="">
@@ -672,7 +689,7 @@ onscroll = (event) => {
         <h2 class="text-white footer-heading text-center">CONTACT US</h2>
         <div class="d-flex justify-content-between">
           <div class="text-white">
-            <h2 class="text-white footer-heading">HARSHITA JAJU</h2>
+            <h2 class="text-white footer-heading" >HARSHITA JAJU</h2>
             <p class="text-center footer-paragraph"><span style="font-size: 2vw;">Media and PR Head</span> <br>9823450114 | harshitajaju.abhyuday@gmail.com</p>
             
           </div>

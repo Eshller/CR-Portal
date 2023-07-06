@@ -24,7 +24,7 @@ SECRET_KEY = 'django-insecure-*$+0vmo2l3d#01za%#r3ii$_+2akx99x2z+3t&4od2^h+yyd33
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*','localhost', '127.0.0.1']
 
@@ -88,6 +88,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'cr.urls'
@@ -162,12 +163,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [
-   BASE_DIR / "static"
-]
+#STATICFILES_DIRS = [
+#   BASE_DIR / "static"
+#]
 
 import os 
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -180,7 +181,7 @@ EMAIL_HOST_PASSWORD = 'rtajrwtogwxbqeew'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
-ACCOUNT_DEFAULT_HTTP_PROTOCOL = 'http'
+ACCOUNT_DEFAULT_HTTP_PROTOCOL = 'https'
 
-# CSRF_TRUSTED_ORIGINS = ['https://cr.abhyudayiitb.org']
-CSRF_TRUSTED_ORIGINS = ['http://localhost:8000/', 'http://127.0.0.1:8000']
+CSRF_TRUSTED_ORIGINS = ['https://cr.abhyudayiitb.org']
+#CSRF_TRUSTED_ORIGINS = ['http://localhost:8000/', 'http://127.0.0.1:8000']
